@@ -1,7 +1,6 @@
-I_G = [10 0 0; 0 20 0; 0 0 30];
-[w, dw] = omega(3);
-net_torque_cm = I_G * dw + cross(w, I_G * w);
-
+G_G_I = [10 0 0; 0 20 0; 0 0 30];
+[G_omega_IG, G_dI_omega_IG] = omega(3);
+net_torque_cm = G_G_I * G_dI_omega_IG + cross(G_omega_IG, G_G_I * G_omega_IG);
 
 disp(net_torque_cm)
 disp(norm(net_torque_cm))

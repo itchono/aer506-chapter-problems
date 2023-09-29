@@ -1,11 +1,47 @@
-syms d_theta Omega theta d m l real
+% REPEAT OF CH2 Q20
 
-% Frame C spins at rate
-P_omega_IC = [d_theta; 0; Omega];
+% this method does it differently from the answer; I translate the inertia
+% matrix to be about point p first, and then find angular momentum about p
+% directly (instead of finding angular momentum about C, then shifting
+% that)
 
-% How do we arrive at this??
-I_rod = 1/12 * m * l^2 .* [1, 0, 0;
-    0, sin(theta)^2, -sin(2*theta)/2;
-    0 -sin(2*theta)/2, cos(theta)^2];
+% Frames
+% {B} plane body, spins wrt inertial; coords {xyz} fixed to body
+% {P} propeller; coordinate system is coincident with {B} when theta = 0
 
-h = I_rod * P_omega_IC
+% Points
+% C - CoM of propeller
+
+syms theta omega Omega d m l real
+
+% calculate inertia matrix of propeller about C, expressed in frame P
+Ixx = 1/12 * m * l^2;
+Iyy = 0;
+Izz = Ixx;
+
+P_C_I = diag([Ixx; Iyy; Izz]);
+
+% rotate inertia matrix to frame B
+B_R_P = [1, 0, 0;
+        0, cos(theta), -sin(theta);
+        0, sin(theta), cos(theta)];
+
+B_C_I = simplify(B_R_P * P_C_I * B_R_P', "Steps", 10);
+
+% translate inertia matrix towards point p (moving by distance [-d; 0; 0])
+B_rho_pc = [-d; 0; 0];
+tilde_B_rho_pc = [0, -B_rho_pc(3), B_rho_pc(2);
+                B_rho_pc(3), 0, -B_rho_pc(1);
+                -B_rho_pc(2), B_rho_pc(1), 0];
+
+B_p_I = B_C_I - m * tilde_B_rho_pc * tilde_B_rho_pc;
+
+% the total angular velocity in frame B is known
+B_omega_IB = [omega; 0; Omega];
+
+% angular momentum about point p
+B_p_h = B_p_I * B_omega_IB
+
+
+
+
