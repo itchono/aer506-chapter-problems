@@ -19,7 +19,10 @@ My notation of variables in code is equally confusing, but I try my best to be c
 
 For clarity, I have some examples:
 
-`I_R_B`: (Pre-superscript I, post-subscript B) - Rotation matrix R_{IB}; represents basis vectors of frame B in frame I
-`B_omega_IB`: (Pre-superscript B, post-subscript IB) - Angular velocity from B to I, expressed in frame B
-`R_dR_omega_IG`: (Pre-superscript R, derivative wrt R, post-subscript IG) - Derivative of angular velocity from G to I wrt frame R, expressed in frame R
-`P_C_I`: (Pre-superscript P, pre-subscript C) - Inertia matrix about point C, represented in frame P
+* `I_R_B`: (Pre-superscript I, post-subscript B) - Rotation matrix R_{IB}; represents basis vectors of frame B in frame I
+* `B_omega_IB`: (Pre-superscript B, post-subscript IB) - Angular velocity from B to I, expressed in frame B
+* `R_dR_omega_IG`: (Pre-superscript R, derivative wrt R, post-subscript IG) - Derivative of angular velocity from G to I wrt frame R, expressed in frame R
+* `P_C_I`: (Pre-superscript P, pre-subscript C) - Inertia matrix about point C, represented in frame P
+
+## If you spot something wrong
+Please [open an issue](https://github.com/itchono/aer506-chapter-problems/issues)! The goal is to crowdsource improvements.
