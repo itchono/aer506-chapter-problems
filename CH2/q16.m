@@ -1,11 +1,16 @@
-% thing
-[G_v_G, G_d_v_G] = velocity(2);
-[G_omega_OG, G_d_omega_OG] = angular_velocity(2);
+% Frames
+% {G} body-fixed
+% {O} inertial
 
-% take derivative directly using coriolis!! not acceleration formula
-G_a_G = G_d_v_G + cross(G_omega_OG, G_v_G);
-disp(G_a_G)
-disp(norm(G_a_G))
+[G_v_G, G_dG_v_G] = velocity(2);
+[G_omega_OG, G_dG_omega_OG] = angular_velocity(2);
+
+% take derivative of velocity wrt frame G (because that's what we express
+% in)
+G_dI_v_G = G_dG_v_G + cross(G_omega_OG, G_v_G);
+
+disp(G_dI_v_G)
+disp(norm(G_dI_v_G))
 
 
 function [G_v_abs, G_a_abs] = velocity(t)

@@ -1,6 +1,17 @@
-syms wx wy wz
+% Frames
+% {B} body - rotating
+% {C} comoving frame - rotating wrt inertial at w
+% {I} inertial frame
 
-A_w_IB = [wx; wy; wz];
-A_w_IA = [wx; wy; sym(0)];
+syms w_x w_y w_z real
 
-A_wd_IB = cross(A_w_IA, A_w_IB)
+% rewrite knowns in frame C
+C_omega_IC = [w_x; w_y; 0];
+C_omega_IB = [w_x; w_y; w_z];
+
+% set up coriolis formula
+C_dC_omega_IB = sym([0; 0; 0]);  % local deriv. is zero
+
+% differentiate using coriolis formula. since we represent everything in
+% frame C, we use omega_IC as the angular velocity to cross with.
+C_dI_omega_IB = C_dC_omega_IB + cross(C_omega_IC, C_omega_IB)

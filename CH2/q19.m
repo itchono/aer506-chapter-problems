@@ -1,3 +1,5 @@
+% this is not really a dynamics problem.
+
 % Compute eigenvalues; this is an eigenvalue problem
 % Mv = 1000v
 Mh = [1000 0 -300;
