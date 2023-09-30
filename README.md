@@ -5,10 +5,15 @@ For numerical computations, I run computations directly.
 
 For algebraic manipulations, I use MATLAB symbolic algebra.
 
+## Install
+1. Clone the repo.
+2. Open MATLAB to any of the `CH*` folders.
+3. Run `q*.m` to run a question. The final answers are printed out to console.
+
 ## Progress
-* All of CH2 done (except Q17 which I don't do, and Q15 which has a discrepancy)
+* All of CH2 done
     * Later problems in CH2 (Q13 onwards) are done a lot better, use those for reference (I lay out frames properly)
-    * Solutions validated for all Q's except 15 and 17.
+    * Solutions validated for all Q's
 * SOME of CH3 done
 
 
