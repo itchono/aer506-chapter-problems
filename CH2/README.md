@@ -1,6 +1,6 @@
 # Recommended Problems - CH2
 
-Numerical problems have matching numerical answers (EXCEPT Q15).
+Numerical problems have matching numerical answers.
 
 Algebraic manipulations are done with MATLAB symbolic algebra.
 

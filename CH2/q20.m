@@ -28,11 +28,7 @@ B_C_I = simplify(B_R_P * P_C_I * B_R_P', "Steps", 10);
 
 % translate inertia matrix towards point p (moving by distance [-d; 0; 0])
 B_rho_pc = [-d; 0; 0];
-tilde_B_rho_pc = [0, -B_rho_pc(3), B_rho_pc(2);
-                B_rho_pc(3), 0, -B_rho_pc(1);
-                -B_rho_pc(2), B_rho_pc(1), 0];
-
-B_p_I = B_C_I - m * tilde_B_rho_pc * tilde_B_rho_pc;
+B_p_I = B_C_I - m * skew(B_rho_pc) * skew(B_rho_pc);
 
 % the total angular velocity in frame B is known
 B_omega_IB = [omega; 0; Omega];
