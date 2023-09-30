@@ -32,7 +32,7 @@ R_omega_IR = R_R_B * B_omega_IB + R_omega_BR;
 R_omega_RG = [4; 0; 0];
 R_omega_IG = R_omega_IR + R_omega_RG;
 
-% coriolis in frame R; local deriv is zero
+% coriolis in frame R; local deriv is NOT zero
 R_dR_omega_IG = diff(R_omega_IG, theta) * 3;  % (deriv wrt theta times theta dot)
 R_dI_omega_IG = simplify(R_dR_omega_IG + cross(R_omega_IR, R_omega_IG))
 
