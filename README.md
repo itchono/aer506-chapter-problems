@@ -14,7 +14,7 @@ For algebraic manipulations, I use MATLAB symbolic algebra.
 * All of CH2 done
     * Later problems in CH2 (Q13 onwards) are done a lot better, use those for reference (I lay out frames properly)
     * Solutions validated for all Q's
-* SOME of CH3 done
+* CH3: all done and validated except Q[6-11]
 
 
 ## General Notation
