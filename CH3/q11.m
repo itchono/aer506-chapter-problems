@@ -1,4 +1,6 @@
-% a pure calculation question
+% Frames
+% {I} inertial
+% {B} body
 
 syms phi(t) theta(t) psi(t)
 
@@ -20,7 +22,7 @@ Rz3 = [cos(psi), -sin(psi), 0;
         0, 0, 1];
 
 % rotation from inertial to body frame
-R = Rz1 * Rx2 * Rz3;
+R = Rz1 * Rx2 * Rz3;  % I_R_B
 crs_omega = diff(R) * R.';
 crs_d_omega = diff(crs_omega);
 
@@ -31,8 +33,10 @@ crs_B_dB_omega_10 = double(crs_d_omega(10));
 I_omega_10 = [-crs_B_omega_10(2, 3); crs_B_omega_10(1, 3); -crs_B_omega_10(1, 2)];
 I_dB_omega_10 = [-crs_B_dB_omega_10(2, 3); crs_B_dB_omega_10(1, 3); -crs_B_dB_omega_10(1, 2)]
 
-% why am I rotating this way (i.e. why did I need to transpose?)
-B_omega_10 = double(R(10).' * I_omega_10);
-B_dB_omega_10 = double(R(10).' * I_dB_omega_10);
+B_R_I = R(10).';
+
+% rotate vectors to body frame (principal axes)
+B_omega_10 = double(B_R_I * I_omega_10);
+B_dB_omega_10 = double(B_R_I * I_dB_omega_10);
 
 net_moment = B_G_I * B_dB_omega_10 + cross(B_omega_10, B_G_I * B_omega_10)
