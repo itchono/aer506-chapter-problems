@@ -15,16 +15,21 @@ m = 50;
 S_G_I = 1/12 * m * diag([l^2 + t^2; w^2 + t^2; l^2 + w^2]);
 
 % parallel axis theorem to reach origin
-S_O_I = S_G_I + diag([0; 0; m*(l/2 + d0)^2]);
+S_O_I = S_G_I + diag([0; m*(l/2 + d0)^2; 0]);
 
 %% Frame rotations
 O_omega_IO = [0; 0; N];
 O_omega_OS = [0; -d_theta; 0];
 O_omega_IS = O_omega_OS + O_omega_IO;
 
+% this rotation was set up wrong, because I assumed a different coord
+% system when I did in in CH2, lmao
 O_R_S = [cos(-theta), 0, sin(-theta);
         0 1 0;
-        -sin(-theta), 0, cos(-theta)];
+        -sin(-theta), 0, cos(-theta)] * ...
+        [0 0 1;
+        0 -1 0;
+        1 0 0];
 
 S_omega_IS = O_R_S.' * O_omega_IS;
 
