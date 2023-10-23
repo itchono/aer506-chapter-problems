@@ -14,8 +14,9 @@ m = 50;
 % inertia matrix
 S_G_I = 1/12 * m * diag([l^2 + t^2; w^2 + t^2; l^2 + w^2]);
 
-% parallel axis theorem to reach origin
-S_O_I = S_G_I + diag([0; m*(l/2 + d0)^2; 0]);
+% parallel axis theorem
+% A_I = B_I - m * tilde(r_A<-B) * tilde(r_A<-B)
+S_O_I = S_G_I - m * skew([0; d0 + l/2; 0]) * skew([0; d0 + l/2; 0]);
 
 %% Frame rotations
 O_omega_IO = [0; 0; N];
@@ -31,8 +32,18 @@ O_R_S = [cos(-theta), 0, sin(-theta);
         0 -1 0;
         1 0 0];
 
-S_omega_IS = O_R_S.' * O_omega_IS;
+S_omega_IS = O_R_S' * O_omega_IS;
+S_h_O = S_O_I * S_omega_IS;
+O_h_O = O_R_S * S_h_O
 
-S_h_O = S_O_I * S_omega_IS
+% Euler's equation: moment = d/dt(h) + omega cross h
+% and, we're doing net moment about G
 
-t_ext = cross(S_omega_IS, S_h_O)
+
+% Figured this out from looking at the solutions
+S_dS_omega_IS = [-N*d_theta*sin(theta); 0; N*d_theta*cos(theta)];
+S_dI_omega_IS = S_dS_omega_IS + cross(S_omega_IS, S_dS_omega_IS);
+
+S_h_G = S_G_I * S_omega_IS;
+S_dI_h_G = S_G_I * S_dI_omega_IS + cross(S_omega_IS, S_h_G)
+
