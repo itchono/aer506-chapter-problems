@@ -26,8 +26,8 @@ B_R_P = [1, 0, 0;
 
 B_C_I = simplify(B_R_P * P_C_I * B_R_P', "Steps", 10);
 
-% translate inertia matrix towards point p (moving by distance [-d; 0; 0])
-B_rho_pc = [-d; 0; 0];
+% translate inertia matrix towards point p (moving by distance [-d; 0; 0] from C)
+B_rho_pc = [d; 0; 0];
 B_p_I = B_C_I - m * skew(B_rho_pc) * skew(B_rho_pc);
 
 % the total angular velocity in frame B is known

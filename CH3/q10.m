@@ -15,8 +15,8 @@ m = 50;
 S_G_I = 1/12 * m * diag([l^2 + t^2; w^2 + t^2; l^2 + w^2]);
 
 % parallel axis theorem
-% A_I = B_I - m * tilde(r_A<-B) * tilde(r_A<-B)
-S_O_I = S_G_I - m * skew([0; d0 + l/2; 0]) * skew([0; d0 + l/2; 0]);
+% A_I = B_I - m * tilde(r_B<-A) * tilde(r_B<-A)
+S_O_I = S_G_I - m * skew(-[0; d0 + l/2; 0]) * skew(-[0; d0 + l/2; 0]);
 
 %% Frame rotations
 O_omega_IO = [0; 0; N];
