@@ -2,9 +2,9 @@ mu = 3.986e14;
 v_p = 11e3;
 r_p = 250e3 + 6378e3;
 
-v_esc = sqrt(2*mu / r_p);
+energy = v_p^2/2 - mu / r_p;
 
-C3 = v_p^2 - v_esc^2;
+C3 = 2*energy
 
 v_excess = sqrt(C3)
 
