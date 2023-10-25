@@ -1,17 +1,18 @@
 % Moving Axes
-% 90 deg about X
+% 45 deg about Z
 C1 = [cosd(45) -sind(45) 0;
       sind(45), cosd(45) 0;
       0 0 1];
-% -30 deg about Y'
-C2 = [cosd(-30) 0 sind(-30);
-     0 1 0;
-     -sind(-30) 0 cosd(-30)];
 
-% 90 deg about X''
-C3 = [1 0 0;
+% 90 deg about X'
+C2 = [1 0 0;
      0 0 -1;
      0 1 0];
+
+% 30 deg about Z'
+C3 = [cosd(30) -sind(30) 0;
+      sind(30), cosd(30) 0;
+      0 0 1];
 
 % X -> Y' -> X''
 C = C1 * C2 * C3;
