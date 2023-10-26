@@ -20,8 +20,27 @@ xi_L2 = fzero(f, [1.0001, 2]);
 xi_L3 = fzero(f, -1);
 
 x_L1 = xi_L1 * r_12
-x_L3 = xi_L2 * r_12
+x_L2 = xi_L2 * r_12
 x_L3 = xi_L3 * r_12
 
+% for fun, L4 and L5
+pos_L4 = [r_12 / 2 - pi_2 * r_12; sqrt(3)/2 * r_12];
+pos_L5 = [r_12 / 2 - pi_2 * r_12; -sqrt(3)/2 * r_12];
 
 
+plot(-pi_2 * r_12, 0, "ko")
+hold on
+plot(pi_1 * r_12, 0, "bo")
+plot(x_L1, 0, "go")
+plot(x_L2, 0, "go")
+plot(x_L3, 0, "go")
+plot(pos_L4(1), pos_L4(2), "go")
+plot(pos_L5(1), pos_L5(2), "go")
+
+% Lines
+plot([pos_L4(1), -pi_2 * r_12, pos_L5(1), pi_1 * r_12, pos_L4(1)],...
+    [pos_L4(2), 0, pos_L5(2), 0, pos_L4(2)], "r--")
+plot([x_L3, pi_1 * r_12], [0, 0], "r--")
+grid
+
+legend("Sun", "Earth", "L1", "L2", "L3", "L4", "L5")
