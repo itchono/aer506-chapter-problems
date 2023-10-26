@@ -5,6 +5,10 @@ For numerical computations, I run computations directly.
 
 For algebraic manipulations, I use MATLAB symbolic algebra.
 
+## Dependencies
+* A recent version of MATLAB
+* Symbolic Math Toolbox
+
 ## Install
 1. Clone the repo.
 2. Open MATLAB to any of the `CH*` folders.
