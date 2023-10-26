@@ -13,10 +13,10 @@ f = @(xi) (1-pi_2) .* (xi + pi_2) ./ abs(xi + pi_2).^3 + pi_2 .* (xi + pi_2 - 1)
 % One solution will be positive and less than x_2 (L1; between CG and Earth)
 % One solution will be negative (L3; on opposite side of CG)
 
-% xi = x/r_12, so choose: L1 -> xi = 0.9, L2 -> xi = 1.1, L3 -> x = -1
+% xi = x/r_12, so choose: L1 -> xi = [0, 0.9999], L2 -> xi = [1.0001, 2], L3 -> x = -1
 
-xi_L1 = fzero(f, 0.9);
-xi_L2 = fzero(f, 1.1);
+xi_L1 = fzero(f, [0, 0.9999]);
+xi_L2 = fzero(f, [1.0001, 2]);
 xi_L3 = fzero(f, -1);
 
 x_L1 = xi_L1 * r_12
