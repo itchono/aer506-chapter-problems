@@ -20,6 +20,7 @@ For algebraic manipulations, I use MATLAB symbolic algebra.
     * Solutions validated for all Q's
 * CH3: all done and validated except Q10, which still needs some work
 * All of CH4 done
+* CH5: 6/12 done
 
 ## General Notation
 There are a LOT of pre-superscripts, etc. in this course. 
