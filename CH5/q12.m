@@ -14,7 +14,7 @@ a = mu / (2*energy); % hyperbolic
 e = sqrt(h^2 / mu / a + 1);
 
 rp = h^2 / mu * 1/(1+e);
-flyby_alt = rp - 6378e3;  % no impact
+flyby_alt = rp - 6378e3;  % a) no impact
 
 % theta must be negative, because gamma < 0
 theta_current = -acos((h^2 / mu / r - 1)/e);
@@ -23,4 +23,5 @@ E_current = 2*atanh(sqrt((e-1)/(e+1)) * tan(theta_current/2));
 M_current = e*sinh(E_current) - E_current;
 t_current = M_current * h^3 / mu^2 / (e^2-1)^1.5;
 
+% b)
 t_till_pe = -t_current / 3600

@@ -15,12 +15,16 @@ For algebraic manipulations, I use MATLAB symbolic algebra.
 3. Run `q*.m` to run a question. The final answers are printed out to console.
 
 ## Progress
-* All of CH2 done
+* All of CH2 done; all validated
     * Later problems in CH2 (Q13 onwards) are done a lot better, use those for reference (I lay out frames properly)
-    * Solutions validated for all Q's
-* CH3: all done and validated except Q10, which still needs some work
-* All of CH4 done
-* CH5: 6/12 done
+    * Comes with bundled library functions for rotation matrices and skew symmetic matrix operators 
+* All of CH3 done; all validated except Q10, which still needs some work
+    * Comes with the same utility functions as CH2
+* All of CH4 done; all validated
+    * I may follow up CH4 with some utilities for orbit determination
+* All of CH5 done; all validated, Q8 is a bit off, but I think my solution should be correct
+    * I may follow up CH5 with a set of utilities for finding parameters
+* CH6
 
 ## General Notation
 There are a LOT of pre-superscripts, etc. in this course. 
