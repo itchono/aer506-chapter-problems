@@ -24,7 +24,8 @@ For algebraic manipulations, I use MATLAB symbolic algebra.
     * I may follow up CH4 with some utilities for orbit determination
 * All of CH5 done; all validated, Q8 is a bit off, but I think my solution should be correct
     * I may follow up CH5 with a set of utilities for finding parameters
-* CH6: 1/16 done
+* CH6: 3/16 done
+* CH7: 0/9 done
 
 ## General Notation
 There are a LOT of pre-superscripts, etc. in this course. 
