@@ -5,5 +5,8 @@ v = [4; 3; -3] * 1e3;
 
 keplerian = cartesian2keplerian([r; v], mu);
 
-disp(keplerian(1))
-disp(keplerian(2:end))
+print_ke(keplerian)
+h = sqrt(keplerian(1) * (1-keplerian(2)^2) * mu)
+
+
+cartesian = keplerian2cartesian(keplerian, mu)

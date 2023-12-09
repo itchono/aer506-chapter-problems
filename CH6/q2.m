@@ -1,7 +1,6 @@
 mu = 3.986e14;
 
-% Note: solutions seem to go with -60
-r_0 = sph_2_geo_deg(-60, -20, 500e3 + 6378e3);   % theta in -90 to +90
+r_0 = sph_2_geo_deg(60, -20, 500e3 + 6378e3);   % theta in -90 to +90
 v_0 = [0; 0; 10e3];     % moving towards perigee therefore in -90 to 0
 
 h_vec = cross(r_0, v_0);
@@ -39,9 +38,14 @@ r_vec_f = f * r_0  + g * v_0;
 
 %% Sanity checking myself
 orbit_ode = @(t, y) [y(4:6); -mu * y(1:3) / norm(y(1:3))^3];
-[t, y] = ode89(orbit_ode, [0, 1800], [r_0; v_0]);
+[~, y] = ode89(orbit_ode, [0, 1800], [r_0; v_0]);
+[~, ya] = ode89(orbit_ode, [0, T], [r_0; v_0]);
 
-plot3(y(:, 1), y(:, 2), y(:, 3))
+plot3(y(:, 1), y(:, 2), y(:, 3), "LineWidth", 5)
+hold on
+plot3(ya(:, 1), ya(:, 2), ya(:, 3), "--")
+plot3(0, 0, 0, "-o", "markersize", 20)
+grid
 axis equal
 
 r_vec_f = y(end, 1:3)';
