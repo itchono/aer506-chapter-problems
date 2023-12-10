@@ -23,10 +23,10 @@ N = cross([0; 0; 1], h_vec); N = N / norm(N);  % Ascending Node
 P = cross(h_vec, N); P = P / norm(P);          % 90 deg ahead of AN
 
 % Calculate RAAN directly using coordinate system
-Omega = atan2d(N(2), N(1));                    % i.e. wrt ECI XY plane
+Omega = mod(atan2d(N(2), N(1)), 360);          % i.e. wrt ECI XY plane
 
 % Calculate AOP and TA using projection onto N ("x") and P ("y")
-omega = atan2d(dot(e_vec, P), dot(e_vec, N));
+omega = mod(atan2d(dot(e_vec, P), dot(e_vec, N)), 360);
 theta = mod(atan2d(dot(r_vec, P), dot(r_vec, N)) - omega, 360);
 
 keplerian = [a; e; i; Omega; omega; theta];
