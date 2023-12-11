@@ -26,7 +26,7 @@ For algebraic manipulations, I use MATLAB symbolic algebra.
     * I may follow up CH5 with a set of utilities for finding parameters
 * All of CH6 done and validated, Q15 is a bit off, but my method is definitely correct, solutions are fishy with rounding
 * All of CH7 done and validated, I couldn't get a good implementation of angle/range orbit determination, so I used the code from Curtis instead for Q3/Q7/Q8. Everything else is originally implemented.
-* CH8: 4/25 done
+* CH8: 16/25 done
 
 ## General Notation
 There are a LOT of pre-superscripts, etc. in this course. 
