@@ -26,7 +26,7 @@ For algebraic manipulations, I use MATLAB symbolic algebra.
     * I may follow up CH5 with a set of utilities for finding parameters
 * All of CH6 done and validated, Q15 is a bit off, but my method is definitely correct, solutions are fishy with rounding
 * All of CH7 done and validated, I couldn't get a good implementation of angle/range orbit determination, so I used the code from Curtis instead for Q3/Q7/Q8. Everything else is originally implemented.
-* CH8: 16/25 done
+* All of CH8 done and validated. Rock solid.
 
 ## General Notation
 There are a LOT of pre-superscripts, etc. in this course. 
@@ -39,6 +39,8 @@ For clarity, I have some examples:
 * `B_omega_IB`: (Pre-superscript B, post-subscript IB) - Angular velocity from B to I, expressed in frame B
 * `R_dR_omega_IG`: (Pre-superscript R, derivative wrt R, post-subscript IG) - Derivative of angular velocity from G to I wrt frame R, expressed in frame R
 * `P_C_I`: (Pre-superscript P, pre-subscript C) - Inertia matrix about point C, represented in frame P
+* Generally for orbits, numerical subscripts _1, _2, etc. can often refer to either times (usually in CH4/5/6/7) OR orbits (CH8). I have made some mixed efforts to label separate orbits as _o1, _o2, but sometimes I got lazy with my notation.
+
 
 ## If you spot something wrong
 Please [open an issue](https://github.com/itchono/aer506-chapter-problems/issues)! The goal is to crowdsource improvements.

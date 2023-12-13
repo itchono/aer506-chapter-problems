@@ -25,5 +25,5 @@ ratp = 2 * atp - rc2;
 vtp_p = sqrt(mu) * sqrt(2/rc2 - 2/(rc2 + ratp));
 dv_phasing = 2 * (vtp_p - vc2);
 
-dv_tot = dv_hohmann + dv_phasing
-
+dv_tot = dv_hohmann + dv_phasing;
+fprintf("Total Delta V: %.3f km/s\n", dv_tot/1e3);
